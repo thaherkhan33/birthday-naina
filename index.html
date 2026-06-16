@@ -18,14 +18,30 @@
       color: #fff;
       font-family: 'Brush Script MT', cursive;
       text-shadow: 2px 2px 8px #000;
+      position: relative;
+      display: inline-block;
+    }
+    /* Sparkle effect */
+    .sparkle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: gold;
+      border-radius: 50%;
+      animation: twinkle 2s infinite;
+    }
+    @keyframes twinkle {
+      0% { transform: scale(0.5); opacity: 0.5; }
+      50% { transform: scale(1.5); opacity: 1; }
+      100% { transform: scale(0.5); opacity: 0.5; }
     }
     .section {
       margin: 40px auto;
       max-width: 800px;
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.85);
       padding: 20px;
       border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
     }
     .letter {
       font-size: 1.1em;
@@ -36,7 +52,10 @@
       transition: opacity 1.5s ease-in-out;
       white-space: pre-line;
     }
-    .letter.show { display: block; opacity: 1; }
+    .letter.show {
+      display: block;
+      opacity: 1;
+    }
     .openLetterBtn, .musicBtn {
       padding: 12px 20px;
       border-radius: 8px;
@@ -48,10 +67,16 @@
       transition: 0.3s;
       margin: 5px;
     }
-    .openLetterBtn:hover { background: #ff1493; }
-    .musicBtn { background: #4CAF50; }
-    .musicBtn:hover { background: #388E3C; }
-    
+    .openLetterBtn:hover {
+      background: #ff1493;
+    }
+    .musicBtn {
+      background: #4CAF50;
+      margin-top: 20px;
+    }
+    .musicBtn:hover {
+      background: #388E3C;
+    }
     /* Balloon style */
     .balloon {
       position: fixed;
@@ -66,7 +91,6 @@
       0% { transform: translateY(0); opacity: 1; }
       100% { transform: translateY(-120vh); opacity: 0; }
     }
-    
     /* Confetti style */
     .confetti {
       position: fixed;
@@ -80,7 +104,16 @@
       0% { transform: translateY(0) rotate(0deg); opacity: 1; }
       100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
     }
-
+    #slideshow img {
+      width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      animation: fade 1s ease-in-out;
+    }
+    @keyframes fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
     /* Game Styles */
     .puzzle-item {
       margin-bottom: 15px;
@@ -121,21 +154,13 @@
       margin-top: 10px;
       font-weight: bold;
     }
-    .score {
-      font-size: 1.2em;
-      font-weight: bold;
-      color: #333;
-      margin: 15px 0;
-    }
     .congrats {
       color: green;
-      font-size: 1.5em;
       display: none;
       margin: 20px 0;
     }
     .qa-congrats {
       color: purple;
-      font-size: 1.5em;
       display: none;
       margin: 20px 0;
     }
@@ -155,24 +180,43 @@
   </style>
 </head>
 <body>
-  <h1>🎂 Happiest Birthday Naina 🎂</h1>
+  <h1 id="title">🎂 Happiest Birthday Naina 🎂</h1>
 
   <!-- Letter Section -->
   <div class="section">
     <h2>💌 A Special Letter</h2>
     <button class="openLetterBtn" onclick="openLetter()">📖 Open Letter</button>
     <div id="letter" class="letter">
-Happiest Bday Baba 🖤 Kaisi heh? Tujhe bohtt sara khushiyan ana lifemein bohtt sad huyi i want you to grow healthy and wealthy in your life
-I know yeh mera wish tumna utna khass nahi but mere liye tumse related jo v cheez bohtt khass hamesha hasti reh hasti bohtt acha lagti mashallah you made my world looks so lovable
-I wish I pray i need you forever♾️ for my life I may not leave you beh anything happens the love for you will be the same
-You are the most prettiest one on world for me i adore you that much I hope you understands small things from you will hit hard for me
-May be your mine everything Sahi bolna kaito Tu meri zindagi one word which i believe Ur always first in my prayers and in life too jo v ho achireh roz
-I miss you a lot i wish i could celebrate a 10 mins with you on this day would be so happy but things are nt like that may be this day i could become a stranger walking on a road to wish you 😂
-I wanted to come to your place just to greet you but agar mai ayu v tumna dikkat hota shyd mann toh bohtt karahe ab thoda zyada clg meh se har birthday chup chup ko karleneka but ab scope heto v situation nai heh
-Khair Enjoy your day Happy time with family and friends Jattan khayal rakho yeh mera wish aur mai utna special nai ab but still tum mereliye bohtt special 🤍
-Jaan bhai tu meri mai boht excited hotu i dont know mujhe hmre din v same lagte Hasti reh Dont be lazy today😂Its ur day
-last time Ai use karani aisa laga tumna bas bolneku toh bohtt kuch hatana magar chance nai heh 🫤Khair Dua mein yaad rakho
+Happiest Bday Baba 🖤 Kaisi heh? 
+Tujhe bohtt sara khushiyan ana lifemein bohtt sad huyi i want you to grow healthy and wealthy in your life. 
+I know yeh mera wish tumna utna khass nahi but mere liye tumse related jo v cheez bohtt khass. 
+Hamesha hasti reh, hasti bohtt acha lagti mashallah you made my world looks so lovable. 
+I wish, I pray, I need you forever♾️ for my life. 
+I may not leave you beh anything happens, the love for you will be the same. 
+You are the most prettiest one in the world for me, I adore you that much. 
+I hope you understands small things from you will hit hard for me. 
+May be your mine everything. Sahi bolna kaito Tu meri zindagi. 
+One word which i believe: Ur always first in my prayers and in life too. 
+Jo v ho achireh roz I miss you a lot. 
+I wish i could celebrate a 10 mins with you on this day, would be so happy but things are nt like that. 
+May be this day i could become a stranger walking on a road to wish you 😂. 
+I wanted to come to your place just to greet you but agar mai ayu v tumna dikkat hota shyd mann toh bohtt karahe. 
+Ab thoda zyada clg meh se har birthday chup chup ko karleneka but ab scope heto v situation nai heh. 
+Khair Enjoy your day, Happy time with family and friends. 
+Jattan khayal rakho, yeh mera wish aur mai utna special nai ab but still tum mereliye bohtt special 🤍. 
+Jaan bhai tu meri, mai boht excited hotu. I dont know mujhe hmre din v same lagte. 
+Hasti reh, Dont be lazy today😂. Its ur day. 
+Last time Ai use karani aisa laga tumna bas bolneku toh bohtt kuch hatana magar chance nai heh 🫤. 
+Khair Dua mein yaad rakho. 
 Once Again Happy Birthday Naina......🖤
+    </div>
+  </div>
+
+  <!-- Slideshow Gallery -->
+  <div class="section">
+    <h2>📸 Memories Together</h2>
+    <div id="slideshow">
+      <img src="naina1.jpg" alt="Naina Picture 1">
     </div>
   </div>
 
@@ -180,7 +224,7 @@ Once Again Happy Birthday Naina......🖤
   <div class="section">
     <h2>🔤 Word Puzzle: Unscramble the Names 🔤</h2>
     <div id="puzzle"></div>
-    <div class="score"><span id="score">Score: 0 / 9</span></div>
+    <h3 id="score">Score: 0 / 9</h3>
     <h2 id="congrats" class="congrats">🎉 You solved all names! 🎉</h2>
     <button id="restart" class="restart-btn" onclick="location.reload()">🔄 Restart Game</button>
   </div>
@@ -189,7 +233,7 @@ Once Again Happy Birthday Naina......🖤
   <div class="section">
     <h2>❓ Questions for Naina ❓</h2>
     <div id="qaPuzzle"></div>
-    <div class="score"><span id="qaScore">Score: 0 / 4</span></div>
+    <h3 id="qaScore">Score: 0 / 4</h3>
     <h2 id="qaCongrats" class="qa-congrats">💜 You answered all questions! 💜</h2>
   </div>
 
